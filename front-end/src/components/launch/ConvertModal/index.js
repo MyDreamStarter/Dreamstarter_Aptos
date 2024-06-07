@@ -70,7 +70,7 @@ const ConvertModal = () => {
       console.log(response); // { address: string, publicKey: string }
       // Check the connected network
       const network = await aptosWallet.network();
-      if (network === "TESTNET") {
+      if (network === "Testnet") {
         // signing message
         const payload = {
           message: "Hello! from dream starter",
@@ -84,7 +84,7 @@ const ConvertModal = () => {
         });
         window.location.reload();
       } else {
-        alert(`Switch to TESTNET in your Petra wallet`);
+        alert(`Switch to Testnet in your Petra wallet`);
       }
     } catch (error) {
       console.error(error); // { code: 4001, message: "User rejected the request."}

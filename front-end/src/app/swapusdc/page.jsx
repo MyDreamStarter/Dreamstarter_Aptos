@@ -5,10 +5,9 @@ import WormholeConnect from '@wormhole-foundation/wormhole-connect';
 const DemoNav = () => {
   return (
     <div>
-   <Nav3/>
-    {/* <WormholeConnect config={{"env":"TESTNET"}} /> */}
-    <WormholeConnect />
-
+      <Nav3 />
+      {/* <WormholeConnect config={{"env":"Testnet"}} /> */}
+      <WormholeConnect />
     </div>
   );
 }
