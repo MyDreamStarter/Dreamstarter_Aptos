@@ -6,172 +6,172 @@ import useAptos from "@/context/useAptos";
 import axios from "axios";
 
 const DashboardNav = () => {
-   const wallet = Cookies.get("dream_starter_wallet");
+  const wallet = Cookies.get("dream_starter_wallet");
 
-   const { aptos, moduleAddress } = useAptos();
+  const { aptos, moduleAddress } = useAptos();
 
-   const { activeAccount, disconnectKeylessAccount } = useKeylessAccounts();
-   console.log("activeAccount", activeAccount);
+  const { activeAccount, disconnectKeylessAccount } = useKeylessAccounts();
+  console.log("activeAccount", activeAccount);
 
-   const [avatarUrl, setAvatarUrl] = useState("");
-   const [loginbox, setloginbox] = useState(false);
-   const [accountdetails, setaccountdetails] = useState(true);
-   const [balance, setbalance] = useState(null);
-   const [faucetTrigger, setFaucetTrigger] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState("");
+  const [loginbox, setloginbox] = useState(false);
+  const [accountdetails, setaccountdetails] = useState(true);
+  const [balance, setbalance] = useState(null);
+  const [faucetTrigger, setFaucetTrigger] = useState(false);
 
-   const getAptosWallet = () => {
-     if ("aptos" in window) {
-       return window.aptos;
-     } else {
-       window.open("https://petra.app/", "_blank");
-     }
-   };
+  const getAptosWallet = () => {
+    if ("aptos" in window) {
+      return window.aptos;
+    } else {
+      window.open("https://petra.app/", "_blank");
+    }
+  };
 
-   const connectWallet = async () => {
-     const aptosWallet = getAptosWallet();
-     try {
-       const response = await aptosWallet.connect();
-       console.log(response); // { address: string, publicKey: string }
-       // Check the connected network
-       const network = await aptosWallet.network();
-       if (network === "Testnet") {
-         // signing message
-         const payload = {
-           message: "Hello! from dream starter",
-           nonce: Math.random().toString(16),
-         };
-         const res = await aptosWallet.signMessage(payload);
-         // signing message
+  const connectWallet = async () => {
+    const aptosWallet = getAptosWallet();
+    try {
+      const response = await aptosWallet.connect();
+      console.log(response); // { address: string, publicKey: string }
+      // Check the connected network
+      const network = await aptosWallet.network();
+      if (network === "TESTNET") {
+        // signing message
+        const payload = {
+          message: "Hello! from dream starter",
+          nonce: Math.random().toString(16),
+        };
+        const res = await aptosWallet.signMessage(payload);
+        // signing message
 
-         Cookies.set("dream_starter_wallet", response.address, { expires: 7 });
-         window.location.reload();
-       } else {
-         alert(`Switch to Testnet in your Petra wallet`);
-       }
-     } catch (error) {
-       console.error(error); // { code: 4001, message: "User rejected the request."}
-     }
-   };
+        Cookies.set("dream_starter_wallet", response.address, { expires: 7 });
+        window.location.reload();
+      } else {
+        alert(`Switch to TESTNET in your Petra wallet`);
+      }
+    } catch (error) {
+      console.error(error); // { code: 4001, message: "User rejected the request."}
+    }
+  };
 
-   const handleDeleteCookie = () => {
-     Cookies.remove("dream_starter_wallet");
-     window.location.href = "/";
-   };
+  const handleDeleteCookie = () => {
+    Cookies.remove("dream_starter_wallet");
+    window.location.href = "/";
+  };
 
-   useEffect(() => {
-     const fetchData = async () => {
-       try {
-         const getRandomNumber = () => Math.floor(Math.random() * 1000);
-         const apiUrl = `https://api.multiavatar.com/${getRandomNumber()}`;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const getRandomNumber = () => Math.floor(Math.random() * 1000);
+        const apiUrl = `https://api.multiavatar.com/${getRandomNumber()}`;
 
-         const response = await axios.get(apiUrl);
-         const svgDataUri = `data:image/svg+xml,${encodeURIComponent(
-           response.data
-         )}`;
-         setAvatarUrl(svgDataUri);
-       } catch (error) {
-         console.error("Error fetching avatar:", error.message);
-       }
-     };
+        const response = await axios.get(apiUrl);
+        const svgDataUri = `data:image/svg+xml,${encodeURIComponent(
+          response.data
+        )}`;
+        setAvatarUrl(svgDataUri);
+      } catch (error) {
+        console.error("Error fetching avatar:", error.message);
+      }
+    };
 
-     fetchData();
-   }, []);
+    fetchData();
+  }, []);
 
-   useEffect(() => {
-     const fetchBalance = async () => {
-       try {
-         const getAccountAPTAmount = async (accountAddress) => {
-           const amount = await aptos.getAccountAPTAmount({
-             accountAddress,
-           });
-           return amount;
-         };
+  useEffect(() => {
+    const fetchBalance = async () => {
+      try {
+        const getAccountAPTAmount = async (accountAddress) => {
+          const amount = await aptos.getAccountAPTAmount({
+            accountAddress,
+          });
+          return amount;
+        };
 
-         const senderBalance = await getAccountAPTAmount(
-           activeAccount.accountAddress
-         );
-         console.log("Sender balance:", senderBalance);
-         setbalance(senderBalance);
-         setFaucetTrigger(false);
-       } catch (error) {
-         console.error("Error fetching balance:", error.message);
-       }
-     };
+        const senderBalance = await getAccountAPTAmount(
+          activeAccount.accountAddress
+        );
+        console.log("Sender balance:", senderBalance);
+        setbalance(senderBalance);
+        setFaucetTrigger(false);
+      } catch (error) {
+        console.error("Error fetching balance:", error.message);
+      }
+    };
 
-     fetchBalance();
-   }, [activeAccount, faucetTrigger]);
+    fetchBalance();
+  }, [activeAccount, faucetTrigger]);
 
-   const faucetapt = async () => {
-     try {
-       await aptos.fundAccount({
-         accountAddress: activeAccount.accountAddress,
-         amount: 100_000_000,
-       });
-       // After faucet, set the faucetTrigger to true to re-run useEffect
-       setFaucetTrigger(true);
-     } catch (error) {
-       console.error("Error funding account:", error.message);
-     }
-   };
+  const faucetapt = async () => {
+    try {
+      await aptos.fundAccount({
+        accountAddress: activeAccount.accountAddress,
+        amount: 100_000_000,
+      });
+      // After faucet, set the faucetTrigger to true to re-run useEffect
+      setFaucetTrigger(true);
+    } catch (error) {
+      console.error("Error funding account:", error.message);
+    }
+  };
 
-   const signmessage = async () => {
-     try {
-       // ----------------------------------------------------- for faucet account and transfer transaction ----------------------------------------
+  const signmessage = async () => {
+    try {
+      // ----------------------------------------------------- for faucet account and transfer transaction ----------------------------------------
 
-       // const balance = async (
-       //   name,
-       //   accountAddress,
-       //  ) => {
-       //   const amount = await aptos.getAccountAPTAmount({
-       //     accountAddress,
-       //   });
-       //   console.log(`${name}'s balance is: ${amount}`);
-       //   return amount;
-       // };
+      // const balance = async (
+      //   name,
+      //   accountAddress,
+      //  ) => {
+      //   const amount = await aptos.getAccountAPTAmount({
+      //     accountAddress,
+      //   });
+      //   console.log(`${name}'s balance is: ${amount}`);
+      //   return amount;
+      // };
 
-       //   const bob = Account.generate();
+      //   const bob = Account.generate();
 
-       //   await aptos.fundAccount({
-       //     accountAddress: activeAccount.accountAddress,
-       //     amount: 100_000_000,
-       //   });
+      //   await aptos.fundAccount({
+      //     accountAddress: activeAccount.accountAddress,
+      //     amount: 100_000_000,
+      //   });
 
-       // const transaction = await aptos.transferCoinTransaction({
-       //     sender: activeAccount.accountAddress,
-       //     recipient: bob.accountAddress,
-       //     amount: 100_100_100,
-       // });
+      // const transaction = await aptos.transferCoinTransaction({
+      //     sender: activeAccount.accountAddress,
+      //     recipient: bob.accountAddress,
+      //     amount: 100_100_100,
+      // });
 
-       // ------------------------------------------------------- smart contract fucntion transaction --------------------------------
+      // ------------------------------------------------------- smart contract fucntion transaction --------------------------------
 
-       const transaction = await aptos.transaction.build.simple({
-         sender: activeAccount.accountAddress,
-         data: {
-           function: `0x973d0f394a028c4fc74e069851114509e78aba9e91f52d000df2d7e40ec5205b::tarot::draws_card`,
-           functionArguments: [],
-         },
-       });
+      const transaction = await aptos.transaction.build.simple({
+        sender: activeAccount.accountAddress,
+        data: {
+          function: `0x973d0f394a028c4fc74e069851114509e78aba9e91f52d000df2d7e40ec5205b::tarot::draws_card`,
+          functionArguments: [],
+        },
+      });
 
-       const committedTxn = await aptos.signAndSubmitTransaction({
-         signer: activeAccount,
-         transaction: transaction,
-       });
+      const committedTxn = await aptos.signAndSubmitTransaction({
+        signer: activeAccount,
+        transaction: transaction,
+      });
 
-       const committedTransactionResponse = await aptos.waitForTransaction({
-         transactionHash: committedTxn.hash,
-       });
+      const committedTransactionResponse = await aptos.waitForTransaction({
+        transactionHash: committedTxn.hash,
+      });
 
-       // const senderBalance = await balance("Alice", activeAccount.accountAddress);
-       // const recieverBalance = await balance("Bob", bob.accountAddress);
+      // const senderBalance = await balance("Alice", activeAccount.accountAddress);
+      // const recieverBalance = await balance("Bob", bob.accountAddress);
 
-       console.log(
-         "Transaction submitted successfully:",
-         committedTransactionResponse
-       );
-     } catch (error) {
-       console.error("Error signing and submitting transaction:", error);
-     }
-   };
+      console.log(
+        "Transaction submitted successfully:",
+        committedTransactionResponse
+      );
+    } catch (error) {
+      console.error("Error signing and submitting transaction:", error);
+    }
+  };
 
   return (
     <div
@@ -193,31 +193,27 @@ const DashboardNav = () => {
         <a href="/dashboard/yourpoaps">Your poaps</a>
 
         {wallet && (
-          <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10 ">
-            <button
-              onClick={handleDeleteCookie}
-              className="bg-white p-2 px-3 text-black hover:bg-sky-500 rounded-xl"
-            >
-              Logout
-            </button>
-          </div>
+          <button
+            onClick={handleDeleteCookie}
+            className="bg-white p-2 px-3 text-black hover:bg-sky-500 rounded-xl"
+          >
+            Logout
+          </button>
         )}
         {!wallet && !activeAccount && (
-          <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10">
-            <button
-              style={{
-                color: "black",
-                borderRadius: "9999px",
-                border: "1.5px solid black",
-              }}
-              className="bg-white p-2  hover:bg-sky-500 {`btn-login ${provider}`}"
-              onClick={() => {
-                setloginbox(true);
-              }}
-            >
-              Login Now
-            </button>
-          </div>
+          <button
+            style={{
+              color: "black",
+              borderRadius: "9999px",
+              border: "1.5px solid black",
+            }}
+            className="bg-white p-2 text-black hover:bg-sky-500 {`btn-login ${provider}`}"
+            onClick={() => {
+              setloginbox(true);
+            }}
+          >
+            Login Now
+          </button>
         )}
       </div>
       {loginbox && (

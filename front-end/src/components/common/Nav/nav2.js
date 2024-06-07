@@ -55,7 +55,7 @@ const Nav2 = () => {
        console.log(response); // { address: string, publicKey: string }
        // Check the connected network
        const network = await aptosWallet.network();
-       if (network === "Testnet") {
+       if (network === "TESTNET") {
          // signing message
          const payload = {
            message: "Hello! from dream starter",
@@ -67,7 +67,7 @@ const Nav2 = () => {
          Cookies.set("dream_starter_wallet", response.address, { expires: 7 });
          window.location.reload();
        } else {
-         alert(`Switch to Testnet in your Petra wallet`);
+         alert(`Switch to TESTNET in your Petra wallet`);
        }
      } catch (error) {
        console.error(error); // { code: 4001, message: "User rejected the request."}
@@ -235,14 +235,12 @@ const Nav2 = () => {
           className="hover:bg-sky-500"
         /> */}
         {wallet && (
-          <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10 ">
             <button
               onClick={handleDeleteCookie}
-              className="bg-white p-2 px-3  hover:bg-sky-500 rounded-xl"
+              className="bg-white p-2 px-3 text-black hover:bg-sky-500 rounded-xl"
             >
               Logout
             </button>
-          </div>
         )}
 
         {/* <Box sx={{ flexGrow: 0 }}>
@@ -279,21 +277,19 @@ const Nav2 = () => {
           </Menu>
         </Box> */}
         {!wallet && !activeAccount && (
-          <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10">
             <button
               style={{
                 color: "black",
                 borderRadius: "9999px",
                 border: "1.5px solid black",
               }}
-              className="bg-white p-2  hover:bg-sky-500 {`btn-login ${provider}`}"
+              className="bg-white p-2 text-black hover:bg-sky-500 {`btn-login ${provider}`}"
               onClick={() => {
                 setloginbox(true);
               }}
             >
               Login Now
             </button>
-          </div>
         )}
       </div>
       {loginbox && (

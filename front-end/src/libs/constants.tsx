@@ -7,8 +7,8 @@ export const LocalStorageKeys = {
   keylessAccounts: "@aptos-connect/keyless-accounts",
 };
 
-export const TestnetClient = new Aptos(
-  new AptosConfig({ network: Network.Testnet })
+export const TESTNETClient = new Aptos(
+  new AptosConfig({ network: Network.TESTNET })
 );
 
 /// FIXME: Put your client id here

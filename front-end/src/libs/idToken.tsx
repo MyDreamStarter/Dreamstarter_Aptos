@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { jwtDecode } from "jwt-decode";
-import { EncryptedScopedIdToken, scopedPayloadSchema } from "./types";
+import { EncryptedScopedIdToken, scopedPayloadSchema } from "./type";
 
 export const decodeIdToken = (jwt: string): EncryptedScopedIdToken =>
   scopedPayloadSchema.parse(jwtDecode(jwt));

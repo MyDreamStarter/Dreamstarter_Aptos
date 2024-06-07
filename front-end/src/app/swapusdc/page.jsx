@@ -6,7 +6,7 @@ const DemoNav = () => {
   return (
     <div>
    <Nav3/>
-    {/* <WormholeConnect config={{"env":"Testnet"}} /> */}
+    {/* <WormholeConnect config={{"env":"TESTNET"}} /> */}
     <WormholeConnect />
 
     </div>
