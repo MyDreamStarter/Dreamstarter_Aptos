@@ -12,8 +12,6 @@ import useAptos from "@/context/useAptos";
 import { Account, SimpleTransaction } from "@aptos-labs/ts-sdk";
 import GoogleLogo from "../components/GoogleLogo";
 
-const REACT_APP_GATEWAY_URL = "https://gateway.netsepio.com/";
-
 export default function Home() {
   const wallet = Cookies.get("dream_starter_wallet");
 
@@ -22,7 +20,6 @@ export default function Home() {
   const { activeAccount, disconnectKeylessAccount } = useKeylessAccounts();
   console.log("activeAccount", activeAccount);
 
-  const [hovered, setHovered] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [loginbox, setloginbox] = useState(false);
   const [accountdetails, setaccountdetails] = useState(true);
@@ -252,14 +249,6 @@ export default function Home() {
             <h1 className="p-6 text-black font-raleway font-medium text-lg ">
               Crowdfund Your Next Big Event with Us
             </h1>
-
-            {/* <button className="mx-6"><ConnectWallet
-              theme={lightTheme({
-                colors: { primaryButtonBg: "none" },
-              })}
-              style={{ color: "black", borderRadius: '9999px', border: '1.5px solid black' }}
-              className="hover:bg-sky-500"
-            /></button> */}
             {!wallet && !activeAccount && (
               <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10">
                 <button
@@ -277,7 +266,6 @@ export default function Home() {
                 </button>
               </div>
             )}
-
             <div className="my-20 mx-6">
               <h1 className="text-black font-raleway font-medium text-xl">
                 Where Dreams Meet Reality
@@ -286,10 +274,9 @@ export default function Home() {
           </div>
         </div>
       </main>
-
       <div className="flex p-36">
         <h1 className="text-black font-raleway font-medium text-5xl leading-none">
-          We help local Communities to{" "}
+          We help local Communities to
           <span className="text-purple-600">Crowdfund</span> <br />
           and <span className="text-purple-600">Launch</span> Events
           Successfully
@@ -306,7 +293,7 @@ export default function Home() {
             width: "400px",
           }}
         >
-          <div className="bg-white h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
+          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
             <h1 className="p-2 text-black font-raleway font-semibold text-base">
               1.Build Your Community
             </h1>
@@ -326,7 +313,7 @@ export default function Home() {
             width: "400px",
           }}
         >
-          <div className="bg-white h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
+          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
             <h1 className="p-2 text-black font-raleway font-semibold text-base">
               2.Plan your Events
             </h1>
@@ -345,7 +332,7 @@ export default function Home() {
             width: "400px",
           }}
         >
-          <div className="bg-white h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
+          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
             <h1 className="p-2 text-black font-raleway font-semibold text-base">
               3.Earn with Events
             </h1>
@@ -362,13 +349,6 @@ export default function Home() {
             Create Communities, <br />
             Launch Events Effortlessly
           </h1>
-          {/* <button className="mx-20 mt-8"><ConnectWallet
-            theme={lightTheme({
-              colors: { primaryButtonBg: "#0F4C81" },
-            })}
-            style={{ color: "white", borderRadius: '9999px' }}
-            className="hover:bg-sky-500"
-          /></button> */}
           {!wallet && !activeAccount && (
             <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10">
               <button
@@ -415,15 +395,10 @@ export default function Home() {
             </a>
           </div>
         </div>
+
         {activeAccount && !wallet ? (
           <>
             <div className="flex gap-4">
-              <Link href="/profile">
-                {avatarUrl && (
-                  <img src={avatarUrl} alt="Avatar" style={{ width: 45 }} />
-                )}{" "}
-              </Link>
-
               <div
                 onClick={() => {
                   navigator.clipboard.writeText(
@@ -484,9 +459,6 @@ export default function Home() {
                     <span className="sr-only">Close modal</span>
                   </button>
                 </div>
-
-                {/* <Image src={emoji} alt="info" className="mx-auto"/> */}
-
                 <div className="p-4 space-y-4">
                   <p
                     className="text-3xl text-center font-bold"
@@ -504,14 +476,14 @@ export default function Home() {
                     Connect with Petra
                   </button>
                 </div>
-                <div className="flex justify-center p-4 pb-20">
+                {/* <div className="flex justify-center p-4 pb-20">
                   <div
                     className="text-black px-8 py-2 bg-white"
                     style={{ borderRadius: "10px" }}
                   >
                     <Link href={"/login"}>Login with google</Link>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
