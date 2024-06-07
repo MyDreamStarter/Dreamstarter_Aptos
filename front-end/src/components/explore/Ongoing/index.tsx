@@ -7,7 +7,7 @@ import Link from "next/link";
 import Button from "@/components/common/Button";
 import { useAddress } from "@thirdweb-dev/react";
 import { enqueueSnackbar } from "notistack";
-import Nav3 from "@/components/common/Nav/nav3";
+import Nav3 from "@/components/common/Nav/nav3.js";
 
 const Ongoing = () => {
   const [selectedValue, setSelectedValue] = useState<any>(null);
@@ -59,8 +59,8 @@ const Ongoing = () => {
           <div className="w-[500px] text-lg  border rounded-md py-10 px-10 max-w-xl flex flex-col gap-5 shadow border-gray-600 shadow-2xl mt-14" style={{background: "#0F4C81"}}>
             <div className="text-white text-2xl mb-1 font-semibold">{proposal.title}</div>
             <div className="text-white ">{proposal.description}</div>
-            <div className="text-white">Price Per NFT: {proposal.priceperNFT} SUI </div>
-            <div className="text-white">Funding Goal: {proposal.funding_goal} SUI</div>
+            <div className="text-white">Price Per NFT: {proposal.priceperNFT} APT </div>
+            <div className="text-white">Funding Goal: {proposal.funding_goal} APT</div>
             <div className="text-white">Valid Till: {proposal.date.$d.toDateString()}</div>
             <div className="text-white">Created by: {address}</div>
 

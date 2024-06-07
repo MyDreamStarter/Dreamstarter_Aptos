@@ -1,5 +1,5 @@
 "use client"
-import DashboardNav from '@/components/common/Nav/dashboardnav'
+import DashboardNav from '@/components/common/Nav/dashboardnav.js'
 import React, { useState } from 'react'
 
 const Page = () => {

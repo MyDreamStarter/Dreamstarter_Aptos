@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { clearCookies } from "@/libs/utils";
 import Claim from "@/components/Claim";
 import { ConnectWallet } from '@thirdweb-dev/react';
-import DashboardNav from '@/components/common/Nav/dashboardnav';
+import DashboardNav from '@/components/common/Nav/dashboardnav.js';
 
 function Pay() {
     useEffect(() => {

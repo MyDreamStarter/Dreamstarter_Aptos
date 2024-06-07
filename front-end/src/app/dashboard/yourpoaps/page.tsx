@@ -1,5 +1,5 @@
 "use client"
-import DashboardNav from '@/components/common/Nav/dashboardnav';
+import DashboardNav from '@/components/common/Nav/dashboardnav.js';
 import React, { useState, useEffect } from 'react';
 import { ethers } from "ethers";
 import MyTokenABI from "@/abi/MyToken.json";

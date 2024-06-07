@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.js", "src/components/explore/Crowdfunding/index.js", "src/components/common/Nav/nav2.js", "src/components/common/Nav/dashboardnav.js", "src/components/common/Nav/nav3.js", "src/components/launch/ConvertModal/index.js"],
   "exclude": ["node_modules"]
 }

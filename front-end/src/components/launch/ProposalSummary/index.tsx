@@ -7,7 +7,7 @@ import ConvertModal from "../ConvertModal";
 import { useProposal } from "@/ContextProviders/ProposalProvider";
 import Lottie from "lottie-react";
 import notFound from "@/components/Empty/notFound.json";
-import Nav3 from "@/components/common/Nav/nav3";
+import Nav3 from "@/components/common/Nav/nav3.js";
 
 const ProposalSummary = () => {
   const [open, setOpen] = useState<boolean>(false);

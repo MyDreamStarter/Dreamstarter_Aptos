@@ -1,5 +1,5 @@
 "use client"
-import Nav3 from '@/components/common/Nav/nav3'
+import Nav3 from '@/components/common/Nav/nav3.js'
 import React from 'react'
 
 const page = () => {
