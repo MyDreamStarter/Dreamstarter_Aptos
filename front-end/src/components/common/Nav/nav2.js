@@ -216,7 +216,7 @@ const Nav2 = () => {
                   <Link
                     key={subItem.title}
                     href={subItem.path}
-                    className="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-500 rounded-md"
+                    className="block px-4 text-black py-2 text-sm hover:bg-blue-50 hover:text-blue-500 rounded-md"
                   >
                     {subItem.title}
                   </Link>
