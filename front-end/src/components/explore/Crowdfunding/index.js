@@ -30,7 +30,7 @@ const Crowdfunding = () => {
   const { proposal } = useProposal();
 
   const wallet = Cookies.get("dream_starter_wallet");
-  
+
   useEffect(() => {
     setIsLoading(false);
   }, []);
@@ -138,35 +138,46 @@ const Crowdfunding = () => {
     }
   };
 
-   async function handleStake() {
-     setIsStaking(true);
-
+  async function handleStake() {
+    setIsStaking(true);
+    try {
+      const stake = {
+        type: "entry_function_payload",
+        function:
+          "0x752d1c37fe7060e599af08f584b6ba0aa989ac163f83424622592f714a8df2e7::nft::stake",
+        type_arguments: [],
+        arguments: [],
+      };
+      const stakeResponse = await window.aptos.signAndSubmitTransaction(stake);
+      console.log("stake Response:", stakeResponse);
+    } catch (error) {
+      console.error("Error handling draw card and fetching rap:", error);
+    } finally {
+    }
     setIsStaked(true);
-   }
+  }
 
   async function handleMint() {
-    const arg3 = "081"
     setIsMinting(true);
-     try {
-       const launchCollection = {
-         type: "entry_function_payload",
-         function:
-           "0x752d1c37fe7060e599af08f584b6ba0aa989ac163f83424622592f714a8df2e7::dreamstarter::mint_new_token",
-         type_arguments: [],
-         arguments: ["s1", "s2", "s3", arg3],
-       };
+    try {
+      const mintCollection = {
+        type: "entry_function_payload",
+        function:
+          "0x752d1c37fe7060e599af08f584b6ba0aa989ac163f83424622592f714a8df2e7::nft::user_mint",
+        type_arguments: [],
+        arguments: [],
+      };
 
-       const launchResponse = await window.aptos.signAndSubmitTransaction(
-         launchCollection
-       );
-       console.log("launch Response:", launchResponse);
-       // setmintdone(true);
-     } catch (error) {
-       console.error("Error handling draw card and fetching rap:", error);
-     } finally {
-       // setLoading(false);
-     }
-     setMintingDone(true);
+      const mintResponse = await window.aptos.signAndSubmitTransaction(
+        mintCollection
+      );
+      console.log("mint Response:", mintResponse);
+    } catch (error) {
+      console.error("Error handling draw card and fetching rap:", error);
+    } finally {
+      // setLoading(false);
+    }
+    setMintingDone(true);
   }
 
   if (isLoading) {
@@ -239,35 +250,35 @@ const Crowdfunding = () => {
               </div>
             ) : (
               <div className="mt-4">
-                {isStaked &&
-                    <Button
-                      variant="primary"
-                      size="md"
-                      onClick={handleMint}
-                      style={{
-                        background: "white",
-                        color: "black",
-                        borderRadius: "999px",
-                      }}
-                    >
-                      {isMinting ? "Minting..." : "Mint NFT"}
-                    </Button>
-                }
+                {isStaked && (
+                  <Button
+                    variant="primary"
+                    size="md"
+                    onClick={handleMint}
+                    style={{
+                      background: "white",
+                      color: "black",
+                      borderRadius: "999px",
+                    }}
+                  >
+                    {isMinting ? "Minting..." : "Mint NFT"}
+                  </Button>
+                )}
 
-                {!isStaked &&
-                    <Button
-                      variant="primary"
-                      size="md"
-                      onClick={() => handleStake()}
-                      style={{
-                        background: "white",
-                        color: "black",
-                        borderRadius: "999px",
-                      }}
-                    >
-                      {isStaking ? "Staking..." : "Stake Token"}
-                    </Button>
-                  }
+                {!isStaked && (
+                  <Button
+                    variant="primary"
+                    size="md"
+                    onClick={() => handleStake()}
+                    style={{
+                      background: "white",
+                      color: "black",
+                      borderRadius: "999px",
+                    }}
+                  >
+                    {isStaking ? "Staking..." : "Stake Token"}
+                  </Button>
+                )}
               </div>
             )}
           </div>
