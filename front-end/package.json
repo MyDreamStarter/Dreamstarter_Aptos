@@ -12,6 +12,7 @@
     "@aptos-labs/ts-sdk": "1.10.0-zeta.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@headlessui/react": "^2.0.4",
     "@metaplex-foundation/js": "^0.20.1",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",

@@ -14,18 +14,18 @@ const ProposalSummary = () => {
   const { proposal } = useProposal();
   if (!proposal)
     return (
-      <div>
+      <div className="bg-black h-screen">
         <Nav3 />
-        <div className="flex flex-col gap-4 justify-center items-center mt-20">
+        <div className="flex flex-col gap-4 justify-center items-center mt-20 ">
           <Lottie animationData={notFound} loop={true} />
-          <div className="text-lg">No ongoing proposal</div>
+          <div className="text-lg text-white">No ongoing proposal</div>
         </div>
       </div>
     );
   return (
     <>
       <Nav3 />
-      <div className="flex justify-center p-40"
+      <div className="flex justify-center p-40 "
       style={{ background: "#BDE3F0" }}>
         <div className="text-sm mt-16  py-8 px-8 max-w-lg rounded-md border mb-6 shadow border-gray-600 shadow-2xl" style={{background: "#0F4C81"}}>
           <div className="text-lg font-medium mb-4 text-white">

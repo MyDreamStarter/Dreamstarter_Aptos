@@ -39,9 +39,9 @@ const Ongoing = () => {
 
   if (!proposal)
     return (
-      <div>
+      <div className="bg-black h-screen">
         <Nav3 />
-        <div className="flex flex-col gap-4 justify-center items-center mt-20">
+        <div className="flex flex-col gap-4 justify-center items-center mt-20 bg-black">
           <Lottie animationData={notFound} loop={true} />
           <div className="text-lg">No ongoing proposal</div>
         </div>
