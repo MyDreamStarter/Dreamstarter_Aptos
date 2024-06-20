@@ -8,6 +8,7 @@ const Page = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [rating, setRating] = useState<number>(0);
     const [review, setReview] = useState<string>("");
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -21,12 +22,18 @@ const Page = () => {
         console.log("Rating:", rating);
         console.log("Review:", review);
         closeModal();
+        setShowSuccessMessage(true);
+
+        // Automatically hide success message after 3 seconds
+        setTimeout(() => {
+            setShowSuccessMessage(false);
+        }, 3000);
     };
 
     return (
         <div className='bg-[#01494f] h-screen'>
             <DashboardNav />
-            <div className='h-[630px]' >
+            <div className='h-[630px]'>
                 <h1 className='p-6 text-white text-2xl mb-1 font-Raleway'>Your Poaps</h1>
                 <div className='flex mx-8 gap-6 my-4'>
                     <div className='h-[400px] w-[350px] p-6 bg-amber-400'>
@@ -97,7 +104,7 @@ const Page = () => {
                                             ))}
                                         </div>
                                         <textarea
-                                            className="mt-4 w-full bg-[#4d4d4d99] rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                            className="mt-4 w-full text-white bg-[#4d4d4d99] rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                             rows={4}
                                             placeholder="Write your review here..."
                                             value={review}
@@ -120,6 +127,13 @@ const Page = () => {
                     </div>
                 </Dialog>
             </Transition>
+
+            {/* Success Message Popup */}
+            {showSuccessMessage && (
+                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-lg shadow-lg z-50">
+                    <p className="text-green-600 text-xl">Your review has been submitted successfully!</p>
+                </div>
+            )}
         </div>
     );
 }
