@@ -183,8 +183,9 @@ export default function Home() {
 
   return (
     <>
+    <div className="bg-[#101010]">
       <main
-        className="flex"
+        className="flex bg-[#9999]"
         style={{
           backgroundImage: `url('/home.png')`,
           backgroundSize: "cover",
@@ -196,7 +197,7 @@ export default function Home() {
           <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10 ">
             <button
               onClick={handleDeleteCookie}
-              className="bg-white p-2 px-3  hover:bg-sky-500 rounded-xl"
+              className="bg-[#9999] p-2 px-3  hover:bg-sky-500 rounded-xl"
             >
               Logout
             </button>
@@ -206,11 +207,11 @@ export default function Home() {
           <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10">
             <button
               style={{
-                color: "black",
+                color: "White",
                 borderRadius: "9999px",
-                border: "1.5px solid black",
+                border: "1.5px solid white",
               }}
-              className="bg-white p-2  hover:bg-sky-500 {`btn-login ${provider}`}"
+              className="bg-[#9999] p-2  hover:bg-sky-500 {`btn-login ${provider}`}"
               onClick={() => {
                 setloginbox(true);
               }}
@@ -219,46 +220,46 @@ export default function Home() {
             </button>
           </div>
         )}
-        <div className="bg-cyan-100 h-[650px] w-[750px] my-6 absolute bottom-4 right-8 rounded-lg ">
-          <Nav />
-          <div className="h-[300px] w-[700px] my-20 mt-44 mx-6">
+        <div className="bg-[#01494f] h-[650px] w-[750px] my-6 absolute bottom-4 right-8 rounded-lg  ">
+          <Nav/>
+          <div className="h-[300px] w-[700px] my-20 mt-44 mx-6 ">
             <div className="flex">
-              <div className="border border-black rounded-full p-2">
-                <h1 className="text-black font-raleway font-medium text-5xl">
+              <div className="border border-white rounded-full p-2">
+                <h1 className="text-white font-raleway font-medium text-5xl">
                   Innovate. &nbsp;
                 </h1>
               </div>
-              <div className="border border-black rounded-full p-2">
-                <h1 className="text-black font-raleway font-medium text-5xl">
+              <div className="border border-white rounded-full p-2">
+                <h1 className="text-white font-raleway font-medium text-5xl">
                   Funds.
                 </h1>
               </div>
             </div>
             <div className="flex">
-              <div className="border border-black rounded-full p-2">
-                <h1 className="text-black font-raleway font-medium text-5xl">
+              <div className="border border-white rounded-full p-2">
+                <h1 className="text-white font-raleway font-medium text-5xl">
                   Build. &nbsp;
                 </h1>
               </div>
-              <div className="border border-black rounded-full p-2">
-                <h1 className="text-black font-raleway font-medium text-5xl">
+              <div className="border border-white rounded-full p-2">
+                <h1 className="text-white font-raleway font-medium text-5xl">
                   Collaborate.
                 </h1>
               </div>
             </div>
 
-            <h1 className="p-6 text-black font-raleway font-medium text-lg ">
+            <h1 className="p-6 text-white font-raleway font-medium text-lg ">
               Crowdfund Your Next Big Event with Us
             </h1>
             {!wallet && !activeAccount && (
               <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10">
                 <button
                   style={{
-                    color: "black",
+                    color: "white",
                     borderRadius: "9999px",
-                    border: "1.5px solid black",
+                    border: "1.5px solid white",
                   }}
-                  className="bg-white p-2  hover:bg-sky-500 {`btn-login ${provider}`}"
+                  className="bg-[#9999] p-2  hover:bg-sky-500 {`btn-login ${provider}`}"
                   onClick={() => {
                     setloginbox(true);
                   }}
@@ -267,16 +268,16 @@ export default function Home() {
                 </button>
               </div>
             )}
-            <div className="my-20 mx-6">
-              <h1 className="text-black font-raleway font-medium text-xl">
+            <div className="my-20 mx-6 ">
+              <h1 className="text-white font-raleway font-medium text-xl">
                 Where Dreams Meet Reality
               </h1>
             </div>
           </div>
         </div>
       </main>
-      <div className="flex p-36">
-        <h1 className="text-black font-raleway font-medium text-5xl leading-none">
+      <div className="flex p-36 ">
+        <h1 className="text-white font-raleway font-medium text-5xl leading-none">
           We help local Communities to
           <span className="text-purple-600">Crowdfund</span> <br />
           and <span className="text-purple-600">Launch</span> Events
@@ -284,9 +285,9 @@ export default function Home() {
         </h1>
       </div>
 
-      <div className="flex mx-28">
+      <div className="flex mx-28 ">
         <div
-          className="mx-6 rounded-xl"
+          className="mx-6 rounded-xl "
           style={{
             backgroundImage: `url('/build.png')`,
             backgroundSize: "cover",
@@ -294,8 +295,8 @@ export default function Home() {
             width: "400px",
           }}
         >
-          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
-            <h1 className="p-2 text-black font-raleway font-semibold text-base">
+          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full ">
+            <h1 className="p-2 text-white font-raleway font-semibold text-base ">
               1.Build Your Community
             </h1>
           </div>
@@ -306,7 +307,7 @@ export default function Home() {
         </div>
 
         <div
-          className="mx-6 rounded-xl"
+          className="mx-6 rounded-xl "
           style={{
             backgroundImage: `url('/plan.png')`,
             backgroundSize: "cover",
@@ -314,8 +315,8 @@ export default function Home() {
             width: "400px",
           }}
         >
-          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
-            <h1 className="p-2 text-black font-raleway font-semibold text-base">
+          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full ">
+            <h1 className="p-2 text-white font-raleway font-semibold text-base">
               2.Plan your Events
             </h1>
           </div>
@@ -333,8 +334,8 @@ export default function Home() {
             width: "400px",
           }}
         >
-          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full bg-white">
-            <h1 className="p-2 text-black font-raleway font-semibold text-base">
+          <div className="h-[40px] w-[200px] m-4 flex-shrink-0 rounded-full ">
+            <h1 className="p-2 text-white font-raleway font-semibold text-base">
               3.Earn with Events
             </h1>
           </div>
@@ -344,9 +345,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex mx-48">
-        <div className="bg-blue-200 h-[400px] w-[700px] mt-44 ">
-          <h1 className="text-black font-raleway font-medium text-4xl mt-28 mx-20">
+      <div className="flex mx-48 ">
+        <div className="bg-[#9999992c] h-[400px] w-[700px] mt-44 ">
+          <h1 className="text-white font-raleway font-medium text-4xl mt-28 mx-20">
             Create Communities, <br />
             Launch Events Effortlessly
           </h1>
@@ -354,11 +355,11 @@ export default function Home() {
             <div className="justify-center items-center h-[50px] w-[200px] my-10 mx-10">
               <button
                 style={{
-                  color: "black",
+                  color: "white",
                   borderRadius: "9999px",
-                  border: "1.5px solid black",
+                  border: "1.5px solid white",
                 }}
-                className="bg-white p-2  hover:bg-sky-500 {`btn-login ${provider}`}"
+                className="bg-[#9999] p-2  hover:bg-sky-500 {`btn-login ${provider}`}"
                 onClick={() => {
                   setloginbox(true);
                 }}
@@ -377,9 +378,9 @@ export default function Home() {
         ></div>
       </div>
 
-      <footer className=" mt-20">
-        <div className=" py-4 text-black text-center">
-          <p className="text-black font-raleway font-medium text-4xl capitalize">
+      <footer className=" mt-20 ">
+        <div className=" py-4 text-white text-center">
+          <p className="text-white font-raleway font-medium text-4xl capitalize">
             Connect with us
           </p>
         </div>
@@ -470,7 +471,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-center p-4 pb-10">
                   <button
-                    className="text-black px-6 py-2 bg-white"
+                    className="text-white px-6 py-2 bg-[#9999]"
                     style={{ borderRadius: "10px" }}
                     onClick={connectWallet}
                   >
@@ -479,7 +480,7 @@ export default function Home() {
                 </div>
                 {/* <div className="flex justify-center p-4 pb-20">
                   <div
-                    className="text-black px-8 py-2 bg-white"
+                    className="text-white px-8 py-2 bg-[#9999]"
                     style={{ borderRadius: "10px" }}
                   >
                     <Link href={"/login"}>Login with google</Link>
@@ -490,6 +491,7 @@ export default function Home() {
           </div>
         )}
       </footer>
+      </div>
     </>
   );
 }

@@ -196,7 +196,7 @@ const Nav3 = () => {
 
   return (
     <div
-      className="px-6 py-4 shadow-sm flex justify-between items-center"
+      className="px-6 py-4 shadow-sm flex justify-between items-center z-20"
       style={{ background: "#0F4C81" }}
     >
       <div className="flex gap-2 items-center">
@@ -208,7 +208,7 @@ const Nav3 = () => {
         </div>
       </div>
 
-      <div className="flex gap-4 items-center text-white">
+      <div className="flex gap-4 items-center text-white z-20">
         {navLinks.map((navItem) => (
           <div
             key={navItem.title}
@@ -219,7 +219,7 @@ const Nav3 = () => {
             {navItem.title}
             {navItem.subItems && (
               <div
-                className={`absolute left-0 w-48 py-2 px-2  rounded-md shadow-xl  ${
+                className={`absolute left-0 w-48 py-2 px-2  rounded-md shadow-xl z-20 bg-[#32313199] ${
                   activeDropdown === navItem.title ? "block" : "hidden"
                 }`}
               >
@@ -227,7 +227,7 @@ const Nav3 = () => {
                   <Link
                     key={subItem.title}
                     href={subItem.path}
-                    className="block px-4 text-black py-2 text-sm hover:bg-blue-50 hover:text-blue-500 rounded-md"
+                    className="block px-4 z-20 text-white py-2 text-sm hover:bg-blue-50 hover:text-blue-500 rounded-md"
                   >
                     {subItem.title}
                   </Link>

@@ -44,13 +44,13 @@ const CreateProposal = () => {
                 height="10px"
               />
             </div>
-            <div className="text-black text-xl font-semibold">
+            <div className="text-white text-xl font-semibold">
               <a href="/">Dreamstarter</a>
             </div>
           </div>
         </div>
 
-        <div className="text-sm w-[750px] bg-blue-200 ">
+        <div className="text-sm w-[750px] bg-[#1d3f71] ">
           <div className="fixed top-0 right-0">
             <Nav2 />
           </div>
@@ -67,14 +67,14 @@ const CreateProposal = () => {
             >
               {({ isSubmitting, setFieldValue, values }) => (
                 <Form>
-                  <div className="text-black text-2xl mb-1  font-semibold mt-20">
+                  <div className="text-white text-2xl mb-1  font-semibold mt-20">
                     Submit Proposal
                   </div>
-                  <div className="text-black  mb-6 bold italic">
+                  <div className="text-white  mb-6 bold italic">
                     Submit your project proposals and ideas for community votes
                     and crowdfunding
                   </div>
-                  <div className="text-black flex flex-col gap-6">
+                  <div className="text-white flex flex-col gap-6">
                     {/* ------------------------  */}
                     <div>
                       <label className="font-medium" htmlFor="title">
@@ -83,7 +83,7 @@ const CreateProposal = () => {
                       <div className="mt-2 w-[300px]">
                         <Input
                       style={{background: "#4AA5F4" }}
-                      className="rounded-full text-white"
+                      className="input px-4 py-3 border-2 border-gray-300 rounded-lg bg-gray-900 text-sm font-bold text-center focus:outline-none focus:outline-white focus:bg-gray-900 focus:text-gray-300 focus:shadow-lg focus:shadow-gray-500/50"
                           required
                           value={values.title}
                           onChange={(e: { target: { value: string } }) => {
@@ -102,7 +102,7 @@ const CreateProposal = () => {
                       <div className=" mt-2 w-[300px]">
                         <Input.TextArea
                         style={{background: "#4AA5F4" }}
-                        className="rounded-full text-white"
+                        className="input px-4 py-2 border-2 border-gray-300 rounded-lg bg-gray-900 text-sm font-bold text-center focus:outline-none focus:outline-white focus:bg-gray-900 focus:text-gray-300 focus:shadow-lg focus:shadow-gray-500/50"
                           required
                           value={values.description}
                           onChange={(e: { target: { value: string } }) => {
@@ -122,7 +122,7 @@ const CreateProposal = () => {
                         <div className="mt-2">
                           <InputNumber
                           style={{background: "#4AA5F4" }}
-                          className="rounded-full text-white"
+                          className="input px-4 py-1 border-2 border-gray-300 rounded-lg bg-gray-900 text-sm font-bold text-center focus:outline-none focus:outline-white focus:bg-gray-900 focus:text-gray-300 focus:shadow-lg focus:shadow-gray-500/50"
                             required
                             value={values.priceperNFT}
                             onChange={(e) => {
@@ -136,13 +136,13 @@ const CreateProposal = () => {
 
                       {/* ------------------------  */}
                       <div>
-                        <label className="text-black font-medium" htmlFor="funding_goal">
+                        <label className="text-white font-medium" htmlFor="funding_goal">
                           Funding Goal
                         </label>
                         <div className="mt-2">
                           <InputNumber
                           style={{background: "#4AA5F4" }}
-                          className="rounded-full text-white"
+                          className="input px-4 py-1 border-2 border-gray-300 rounded-lg bg-gray-900 text-sm font-bold text-center focus:outline-none focus:outline-white focus:bg-gray-900 focus:text-gray-300 focus:shadow-lg focus:shadow-gray-500/50"
                             required
                             value={values.funding_goal}
                             onChange={(e) => {
@@ -162,11 +162,11 @@ const CreateProposal = () => {
                       }}
                       value={values.proposal_type}
                     >
-                      <Radio value={"collab"} className="!font-raleway text-black">
+                      <Radio value={"collab"} className="!font-raleway text-white">
                         {" "}
                         Dreamstarter Collab
                       </Radio>
-                      <Radio value={"holder"} className="!font-raleway text-black">
+                      <Radio value={"holder"} className="!font-raleway text-white">
                         {" "}
                         Dreamstarter Holder
                       </Radio>
@@ -183,7 +183,7 @@ const CreateProposal = () => {
 
                         <DatePicker
                         style={{background: "#4AA5F4" }}
-                        className="rounded-full text-white"
+                        className="input px-4 py-1 border-2 border-gray-300 rounded-lg bg-gray-900 text-sm font-bold text-center focus:outline-none focus:outline-white focus:bg-gray-900 focus:text-gray-300 focus:shadow-lg focus:shadow-gray-500/50"
                           onChange={(e) => {
                             setFieldValue("date", e);
                           }}

@@ -52,12 +52,12 @@ const Nav: FC = () => {
             height="10px"
           />
         </div>
-        <div className="text-black text-xl font-semibold">
+        <div className="text-white text-xl font-semibold">
           <a href="/">Dreamstarter</a>
         </div>
       </div>
 
-      <div className="flex gap-4 items-center text-black">
+      <div className="flex gap-4 items-center text-white">
         {navLinks.map((navItem) => (
           <div
             key={navItem.title}
@@ -75,7 +75,7 @@ const Nav: FC = () => {
                   <Link
                     key={subItem.title}
                     href={subItem.path}
-                    className="block px-4 text-black py-2 text-sm hover:bg-blue-50 hover:text-blue-500 rounded-md"
+                    className="block px-4 text-white py-2 text-sm hover:bg-blue-50 hover:text-blue-500 rounded-md"
                   >
                     {subItem.title}
                   </Link>
@@ -85,7 +85,7 @@ const Nav: FC = () => {
           </div>
         ))}
         <a href="/community/create-community">Community</a>
-        <a href="/swapusdc">Swap USDC</a>
+        {/* <a href="/swapusdc">Swap USDC</a> */}
         <a href="/dashboard/crowdfunding-events">Dashboard</a>
       </div>
     </div>

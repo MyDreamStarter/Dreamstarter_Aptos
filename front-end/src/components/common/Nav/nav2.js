@@ -197,7 +197,7 @@ const Nav2 = () => {
 
   return (
     <div className="px-6 py-4 shadow-sm flex justify-between items-center ">
-      <div className="flex gap-4 items-center text-black">
+      <div className="flex gap-4 items-center text-white">
         {navLinks.map((navItem) => (
           <div
             key={navItem.title}
@@ -216,7 +216,7 @@ const Nav2 = () => {
                   <Link
                     key={subItem.title}
                     href={subItem.path}
-                    className="block px-4 text-black py-2 text-sm hover:bg-blue-50 hover:text-blue-500 rounded-md"
+                    className="block px-4 text-white py-2 text-sm hover:bg-blue-50 hover:text-blue-500 rounded-md"
                   >
                     {subItem.title}
                   </Link>
@@ -237,7 +237,7 @@ const Nav2 = () => {
         {wallet && (
             <button
               onClick={handleDeleteCookie}
-              className="bg-white p-2 px-3 text-black hover:bg-sky-500 rounded-xl"
+              className="bg-white p-2 px-3 text-white hover:bg-sky-500 rounded-xl"
             >
               Logout
             </button>
@@ -279,11 +279,11 @@ const Nav2 = () => {
         {!wallet && !activeAccount && (
             <button
               style={{
-                color: "black",
+                color: "white",
                 borderRadius: "9999px",
-                border: "1.5px solid black",
+                border: "1.5px solid white",
               }}
-              className="bg-white p-2 text-black hover:bg-sky-500 {`btn-login ${provider}`}"
+              className="bg-black p-2 text-white hover:bg-sky-500 {`btn-login ${provider}`}"
               onClick={() => {
                 setloginbox(true);
               }}
