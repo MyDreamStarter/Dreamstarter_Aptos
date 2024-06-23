@@ -1,13 +1,17 @@
 [package]
-name = "dreamstarter_contracts"
-version = "0.0.1"
+name = "phygital"
+version = "1.0.0"
+authors = []
 
-[dependencies]
-Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/TESTNET" }
+[dependencies.AptosFramework]
+git = 'https://github.com/aptos-labs/aptos-core.git'
+rev = 'main'
+subdir = 'aptos-move/framework/aptos-framework'
+
+[dependencies.AptosTokenObjects]
+git = 'https://github.com/aptos-labs/aptos-core.git' 
+rev = 'main'
+subdir = 'aptos-move/framework/aptos-token-objects'
 
 [addresses]
-addrx = "0x0"
-admin = "0x5ad02e8b24ea1006f4ea1d640441447e5ba3a4d111ddd7011e4e98142d664404"
-
-
-
+addrx = "0x752d1c37fe7060e599af08f584b6ba0aa989ac163f83424622592f714a8df2e7"
